@@ -20,33 +20,31 @@ def round_winner():
         return 1
 
 
-def is_winner(win_list=None) -> int:
+def is_winner(win_list=None) -> None:
     if win_list is None:
         win_list = []
     rw = round_winner()
     if rw in [1, 2, 3]:
         win_list.append(rw)
     if win_list.count(1) == 3:
-        return 1
+        print('\nAI win the game!')
+
     elif win_list.count(2) == 3:
-        return 2
+        print('\nCongratulation! You win the game!')
     else:
-        print(win_list)
+        print(f'Score\nAI: {win_list.count(1)}, Player: {win_list.count(2)}, draw: {win_list.count(3)}')
         is_winner(win_list)
 
 
 def play(restart_val: bool = False) -> None:
     if restart_val:
-        choice = menu(1)
+        choice = 1
     else:
         choice = menu()
 
     if choice == 1:
         print(f'\n\nNew Game!')
-        print(is_winner())
-        restart_val = restart()
-
-        if restart_val == 1:
+        if restart() == 1:
             play(True)
     elif choice == 2:
         print(
@@ -58,4 +56,4 @@ def play(restart_val: bool = False) -> None:
             'PAPER win against ROCK\n'
         )
         input('Tap enter to continue\n')
-        menu()
+        play()

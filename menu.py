@@ -9,7 +9,7 @@ def menu(c: int = None) -> int:
     if choice in ['1', '2', '3']:
         return int(choice)
     else:
-        print("Wrong input, please select 1 for the rules or 2 to play.\n")
+        print("Wrong input, please select 1 to PLAY or 2 to know RULES.\n")
         menu()
 
 
@@ -17,7 +17,7 @@ def restart(fail: bool = False) -> int:
     if fail:
         print('\nWrong input, please select 1 for YES or 2 for NO')
 
-    a = input('Do you want to restart a game?\n'
+    a = input('\n\nDo you want to restart a game?\n'
               '1- Yes\n'
               '2- No\n'
               )
